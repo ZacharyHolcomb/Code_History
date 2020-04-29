@@ -1,0 +1,12 @@
+Both C files in the socket_forkhandlers were used as a baseline for the central.c and the external.c files.
+Compile: gcc central.c -o server gcc external.c -o client
+
+Execution: Done in 5 windows, one for the server and four others for each external process. If more connections are wanted, 
+NUM_OF_CONNECTIONS just needs to be changed from 4 to whatever limit. For every connection there needs to be an additional terminal.
+Central process executed as:
+./server port central_temperature
+
+For the external processes, it will only work if process ids are within the range of 1 to the max number of connections, 
+with each id being unique. 
+External processes executed as: 
+./client localhost port temperature process_id
